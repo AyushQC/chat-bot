@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career & Education Guide | One-Stop Advisor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        .dark body {
+             background-color: #020617; /* Darker slate background for dark mode */
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Styling for active tab */
+        .tab-active {
+            border-color: #4f46e5 !important; /* Indigo for 10th */
+            color: #4f46e5;
+            background-color: #eef2ff;
+        }
+        .dark .tab-active {
+            background-color: #312e81;
+            color: #c7d2fe;
+        }
+        
+        .tab-active-12th {
+             border-color: #16a34a !important; /* Green for 12th */
+             color: #16a34a;
+             background-color: #f0fdf4;
+        }
+        .dark .tab-active-12th {
+            background-color: #166534;
+            color: #dcfce7;
+        }
+
+        /* Page-like transition */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page-visible {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Modal styles */
+        .modal-overlay {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        /* Simple spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #4f46e5;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .ai-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="dark:text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#path-selection" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">One-Stop Advisor</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#path-selection" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium">Start Here</a>
+                <a href="#after-10th" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium">After 10th</a>
+                <a href="#after-12th" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium">After 12th</a>
+            </nav>
+            <button class="md:hidden" id="mobile-menu-button">
+                 <svg class="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-white dark:bg-slate-900">
+             <a href="#path-selection" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Start Here</a>
+             <a href="#after-10th" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">After 10th</a>
+             <a href="#after-12th" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">After 12th</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Path Selection Page -->
+        <section id="path-selection" class="page page-visible text-center mb-20">
+             <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">Your Complete Career & Education Roadmap</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-16">
+                Navigate your academic journey with confidence. We provide a clear roadmap, resources, and guidance for every step after your 10th and 12th grade exams.
+            </p>
+             <h3 class="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-teal-500 dark:from-indigo-300 dark:to-teal-300">Begin Your Journey</h3>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <button data-target="after-10th-section" class="path-button bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-left flex items-start space-x-4">
+                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                        <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 01.553-.894L9 4l6 3-6 3-6-3v6l6 3 6-3"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">After 10th Grade</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Explore streams like Science, Commerce, Arts, and Diploma. Understand subject combinations and future opportunities for your PU studies.</p>
+                    </div>
+                </button>
+                 <button data-target="after-12th-section" class="path-button bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-left flex items-start space-x-4">
+                     <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                        <svg class="h-6 w-6 text-green-600 dark:text-green-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                     <div>
+                        <h4 class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">After 12th Grade</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Get detailed guides on exams like CET, NEET, CA, CLAT, NID/NIFT and explore various degree paths in Engineering, Medicine, Law, Design and more.</p>
+                     </div>
+                </button>
+             </div>
+        </section>
+
+        <!-- After 10th Page -->
+        <section id="after-10th-section" class="page mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h3 id="after-10th" class="text-3xl font-bold border-l-4 border-indigo-500 pl-4 text-indigo-600 dark:text-indigo-400">Guidance After 10th Grade</h3>
+                <a href="#path-selection" class="change-path-btn text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Change Path</a>
+            </div>
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+                <div class="mb-6 border-b border-gray-200 dark:border-gray-700">
+                    <nav class="flex flex-wrap -mb-px" id="tabs-10th">
+                        <button data-tab="science-10th" class="tab-10th tab-active w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Science</button>
+                        <button data-tab="commerce-10th" class="tab-10th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Commerce</button>
+                        <button data-tab="arts-10th" class="tab-10th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Arts</button>
+                        <button data-tab="diploma-10th" class="tab-10th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Diploma</button>
+                    </nav>
+                </div>
+                <div id="tab-content-10th">
+                    <!-- Science Content -->
+                    <div id="science-10th" class="tab-pane-10th">
+                        <h4 class="text-2xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">The Science Stream</h4>
+                        <p class="mb-4">Focuses on fostering logical, analytical, and problem-solving skills. It is the gateway to careers in Engineering, Medicine, Information Technology, and Scientific Research.</p>
+                        <h5 class="font-bold mb-2">Popular Combinations:</h5>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                            <li><strong>PCMB:</strong> Physics, Chemistry, Mathematics, Biology. Keeps options open for both Engineering and Medical fields.</li>
+                            <li><strong>PCMC/S:</strong> Physics, Chemistry, Mathematics, Computer Science. Ideal for aspiring software and hardware engineers.</li>
+                            <li><strong>PCME:</strong> Physics, Chemistry, Mathematics, Electronics. Focuses on electronic circuits and devices.</li>
+                        </ul>
+                        <h5 class="font-bold mt-6 mb-2">Future Career Paths:</h5>
+                        <p>B.E/B.Tech, MBBS, BDS, B.Pharm, B.Arch, B.Sc, National Defence Academy (NDA), Pilot Training, Research.</p>
+                         <div class="my-6">
+                            <button class="career-suggester-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-stream="Science">
+                                ✨ Get AI Career Suggestions
+                            </button>
+                        </div>
+                        <h5 class="font-bold mt-6 mb-2">Recommended Study Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://www.youtube.com/@PhysicsWallah" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>Physics Wallah:</strong> Comprehensive lectures for PCM & B.</a>
+                           <a href="https://www.youtube.com/@khanacademy" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>Khan Academy:</strong> For strong foundational concepts.</a>
+                           <a href="https://phet.colorado.edu/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>PhET Simulations:</strong> Interactive science and math simulations.</a>
+                           <a href="https://byjus.com/ncert-solutions/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>NCERT Solutions:</strong> Essential for board exam preparation.</a>
+                        </div>
+                    </div>
+                    <!-- Commerce Content -->
+                    <div id="commerce-10th" class="tab-pane-10th hidden">
+                        <h4 class="text-2xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">The Commerce Stream</h4>
+                        <p class="mb-4">Deals with the world of business, trade, and finance. It is perfect for students aiming for careers in Accounting, Management, Finance, and Entrepreneurship.</p>
+                        <h5 class="font-bold mb-2">Popular Combinations:</h5>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                             <li><strong>BASM/BACS:</strong> Business Studies, Accountancy, Statistics, Mathematics / Computer Science.</li>
+                             <li><strong>BAEC:</strong> Business Studies, Accountancy, Economics, Computer Science.</li>
+                        </ul>
+                        <h5 class="font-bold mt-6 mb-2">Future Career Paths:</h5>
+                        <p>Chartered Accountancy (CA), Company Secretary (CS), CMA, B.Com, BBA, Banking, Financial Analyst.</p>
+                        <div class="my-6">
+                            <button class="career-suggester-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-stream="Commerce">
+                                ✨ Get AI Career Suggestions
+                            </button>
+                        </div>
+                        <h5 class="font-bold mt-6 mb-2">Recommended Study Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://www.icai.org/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>ICAI Website:</strong> Official source for all CA-related material.</a>
+                           <a href="https://www.youtube.com/@CaNareshAggarwals" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>CA Naresh Aggarwal:</strong> Quality lectures on Accountancy.</a>
+                           <a href="https://www.zerodha.com/varsity/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>Zerodha Varsity:</strong> Excellent for learning about stock markets.</a>
+                           <a href="https://economictimes.indiatimes.com/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>The Economic Times:</strong> Stay updated with business news.</a>
+                        </div>
+                    </div>
+                    <!-- Arts Content -->
+                    <div id="arts-10th" class="tab-pane-10th hidden">
+                        <h4 class="text-2xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">The Arts / Humanities Stream</h4>
+                        <p class="mb-4">A very broad and diverse field that focuses on human society, culture, and its expressions. It opens doors to careers in Law, Journalism, Civil Services, Design, Academia, and much more.</p>
+                        <h5 class="font-bold mb-2">Popular Combinations:</h5>
+                        <ul class="list-disc list-inside mb-4 space-y-1">
+                             <li><strong>HEPS:</strong> History, Economics, Political Science, Sociology. A classic combination for Civil Services aspirants.</li>
+                             <li><strong>HEPP:</strong> History, Economics, Political Science, Psychology. Focuses on human behavior.</li>
+                        </ul>
+                        <h5 class="font-bold mt-6 mb-2">Future Career Paths:</h5>
+                        <p>Law (LLB), Journalism, Fashion/Interior Design, Civil Services (IAS/IPS), Hotel Management, Professor.</p>
+                        <div class="my-6">
+                           <button class="career-suggester-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-stream="Arts and Humanities">
+                                ✨ Get AI Career Suggestions
+                            </button>
+                        </div>
+                        <h5 class="font-bold mt-6 mb-2">Recommended Study Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://www.youtube.com/@crashcourse" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>CrashCourse:</strong> Engaging videos on History, Sociology, etc.</a>
+                           <a href="https://www.thehindu.com/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>The Hindu Newspaper:</strong> Essential for Civil Services and Law prep.</a>
+                           <a href="https://www.drishtiias.com/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>Drishti IAS:</strong> Comprehensive material for UPSC aspirants.</a>
+                           <a href="https://www.ted.com/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>TED Talks:</strong> For public speaking and diverse knowledge.</a>
+                        </div>
+                    </div>
+                    <!-- Diploma Content -->
+                    <div id="diploma-10th" class="tab-pane-10th hidden">
+                       <h4 class="text-2xl font-semibold mb-4 text-indigo-600 dark:text-indigo-400">Diploma / Vocational Courses</h4>
+                        <p class="mb-4">Job-oriented technical courses designed to equip students with practical skills. They offer a quicker path to employment and can also provide lateral entry into degree programs.</p>
+                        <h5 class="font-bold mb-2">Key Fields:</h5>
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>Polytechnic:</strong> Diploma in Civil, Mechanical, Electrical, Computer Science, etc. (3 years)</li>
+                            <li><strong>Industrial Training Institute (ITI):</strong> Courses for trades like Fitter, Electrician, Welder. (1-2 years)</li>
+                            <li><strong>Paramedical:</strong> Diploma in Medical Lab Technology (DMLT), Diploma in Pharmacy (D.Pharm).</li>
+                        </ul>
+                         <h5 class="font-bold mt-6 mb-2">Future Career Paths:</h5>
+                        <p>Junior Engineer, Technician, Lab Assistant. A Diploma is also a great pathway for lateral entry into the 2nd year of a B.E/B.Tech program.</p>
+                        <h5 class="font-bold mt-4 mb-2">Recommended Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://dtek.karnataka.gov.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>DTE Karnataka:</strong> Official info on Diploma admissions in Karnataka.</a>
+                           <a href="https://ncvtmis.gov.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-indigo-100 dark:hover:bg-slate-600 transition"><strong>NCVT MIS Portal:</strong> For ITI courses and information across India.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- After 12th Page -->
+        <section id="after-12th-section" class="page mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h3 id="after-12th" class="text-3xl font-bold border-l-4 border-green-500 pl-4 text-green-600 dark:text-green-400">Guidance After 12th Grade</h3>
+                <a href="#path-selection" class="change-path-btn text-green-600 dark:text-green-400 hover:underline font-semibold">Change Path</a>
+            </div>
+            <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+                <div class="mb-6 border-b border-gray-200 dark:border-gray-700">
+                    <nav class="flex flex-wrap -mb-px" id="tabs-12th">
+                        <button data-tab="eng-12th" class="tab-12th tab-active-12th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Engineering</button>
+                        <button data-tab="med-12th" class="tab-12th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Medical</button>
+                        <button data-tab="ca-12th" class="tab-12th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Commerce</button>
+                        <button data-tab="law-12th" class="tab-12th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Law/Arts</button>
+                        <button data-tab="design-12th" class="tab-12th w-full sm:w-auto text-lg font-semibold p-4 border-b-2 border-transparent rounded-t-lg">Design</button>
+                    </nav>
+                </div>
+                <div id="tab-content-12th">
+                    <!-- Engineering Content -->
+                    <div id="eng-12th" class="tab-pane-12th grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">Exams: JEE, CET, COMEDK</h4>
+                             <p class="mb-4">Exams like <strong>JEE (Main & Adv)</strong> for IITs/NITs, <strong>State CETs</strong>, and <strong>COMEDK</strong> for private colleges in Karnataka are the primary gateways to engineering.</p>
+                             <div class="my-6">
+                                <button class="study-plan-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-exam="JEE/CET Engineering">
+                                    ✨ Generate AI Study Plan
+                                </button>
+                            </div>
+                             <h5 class="font-bold mb-2">Roadmap:</h5>
+                            <ul class="list-disc list-inside mb-4">
+                               <li>Master 11th & 12th PCM concepts.</li>
+                               <li>Solve previous year papers relentlessly.</li>
+                               <li>Take mock tests to improve speed and accuracy.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mt-0 mb-2">Top Resources:</h5>
+                            <div class="grid grid-cols-1 gap-4">
+                               <a href="https://jeemain.nta.nic.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>NTA JEE Website:</strong> Official source for JEE Main.</a>
+                               <a href="https://cetonline.karnataka.gov.in/kea/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>KEA Website:</strong> For Karnataka CET.</a>
+                               <a href="https://www.comedk.org/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>COMEDK Website:</strong> For private engineering colleges.</a>
+                               <a href="https://nptel.ac.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>NPTEL:</strong> Free courses from IITs/IISc.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Medical Content -->
+                    <div id="med-12th" class="tab-pane-12th hidden grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">Exam: NEET-UG</h4>
+                            <p class="mb-4">The <strong>NEET</strong> is the single gateway for admission to MBBS, BDS, AYUSH, and Veterinary courses. It tests in-depth knowledge of Biology, Chemistry, and Physics.</p>
+                             <div class="my-6">
+                                <button class="study-plan-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-exam="NEET-UG Medical">
+                                    ✨ Generate AI Study Plan
+                                </button>
+                            </div>
+                             <h5 class="font-bold mb-2">Roadmap:</h5>
+                            <ul class="list-disc list-inside mb-4">
+                               <li>Master NCERT textbooks for classes 11 & 12.</li>
+                               <li>Focus heavily on Biology (highest weightage).</li>
+                               <li>Practice MCQs daily and take regular mock tests.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mt-0 mb-2">Top Resources:</h5>
+                            <div class="grid grid-cols-1 gap-4">
+                               <a href="https://neet.nta.nic.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>NTA NEET Website:</strong> Official announcements and results.</a>
+                               <a href="https://www.youtube.com/@UnacademyNEET" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>Unacademy NEET:</strong> Live classes from top educators.</a>
+                               <a href="https://www.youtube.com/channel/UCiT4sDCa22_eP6w_N3-nL-g" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>Dr. Vani Sood (Vedantu):</strong> Popular for Biology preparation.</a>
+                               <a href="https://apps.ankiweb.net/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>Anki Flashcards:</strong> Excellent for spaced repetition and memorization.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Commerce/CA Content -->
+                    <div id="ca-12th" class="tab-pane-12th hidden grid md:grid-cols-2 gap-8">
+                         <div>
+                            <h4 class="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">Paths: CA, B.Com, BBA</h4>
+                            <p class="mb-4">After 12th Commerce, students can aim for professional courses like CA, CS, or pursue versatile degrees like B.Com and BBA.</p>
+                             <div class="my-6">
+                                <button class="study-plan-btn ai-button inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-teal-600 text-white font-semibold py-3 px-5 rounded-lg transition" data-exam="CA Foundation">
+                                    ✨ Generate AI Study Plan
+                                </button>
+                            </div>
+                             <h5 class="font-bold mb-2">Roadmap for CA:</h5>
+                            <ul class="list-disc list-inside mb-4">
+                               <li>Register for CA Foundation after 12th.</li>
+                               <li>Clear Foundation, Intermediate, and Final exams.</li>
+                               <li>Complete 3 years of mandatory articleship.</li>
+                            </ul>
+                        </div>
+                        <div>
+                             <h5 class="font-bold mt-0 mb-2">Top Resources:</h5>
+                            <div class="grid grid-cols-1 gap-4">
+                               <a href="https://www.icai.org/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>ICAI Website:</strong> For syllabus, registration, and material.</a>
+                               <a href="https://www.icsi.edu/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>ICSI Website:</strong> For Company Secretary course info.</a>
+                               <a href="https://icmai.in/icmai/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>ICMAI Website:</strong> For Cost & Management Accountant.</a>
+                               <a href="https://www.coursera.org/browse/business" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-green-100 dark:hover:bg-slate-600 transition"><strong>Coursera/edX:</strong> For specialized business courses.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Law/Arts Content -->
+                    <div id="law-12th" class="tab-pane-12th hidden">
+                        <h4 class="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">Paths: Law & Civil Services</h4>
+                        <p class="mb-4">For students aiming for a career in law (via <strong>CLAT, AILET</strong>) or civil services (IAS/IPS via UPSC). Requires strong analytical skills and general awareness.</p>
+                         <h5 class="font-bold mb-2">Roadmap:</h5>
+                        <ul class="list-disc list-inside mb-4">
+                           <li>Prepare for entrance exams like CLAT/AILET.</li>
+                           <li>For Law: Pursue a 5-year integrated LLB degree.</li>
+                           <li>For Civil Services: Pursue any degree (B.A. preferred) and prepare for the UPSC CSE exam.</li>
+                        </ul>
+                        <h5 class="font-bold mt-4 mb-2">Top Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://consortiumofnlus.ac.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>CLAT Consortium:</strong> Official website for the CLAT exam.</a>
+                           <a href="https://nludelhi.ac.in/home.aspx" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>AILET Website:</strong> For National Law University, Delhi.</a>
+                           <a href="https://www.visionias.in/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>Vision IAS:</strong> A leading resource for UPSC preparation.</a>
+                           <a href="https://www.vocabulary.com/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>Vocabulary.com:</strong> To improve English vocabulary for exams.</a>
+                        </div>
+                    </div>
+                     <!-- Design Content -->
+                    <div id="design-12th" class="tab-pane-12th hidden">
+                        <h4 class="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">Paths: Design (NID/NIFT/UCEED)</h4>
+                        <p class="mb-4">For creative students interested in fields like Fashion, Product, or Graphic Design. Admission is through design entrance exams.</p>
+                         <h5 class="font-bold mb-2">Roadmap:</h5>
+                        <ul class="list-disc list-inside mb-4">
+                           <li>Build a strong portfolio showcasing your creativity.</li>
+                           <li>Prepare for exams like NID DAT, NIFT, or UCEED.</li>
+                           <li>Pursue a Bachelor of Design (B.Des) from a top institute.</li>
+                        </ul>
+                        <h5 class="font-bold mt-4 mb-2">Top Resources:</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           <a href="https://admissions.nid.edu/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>NID Admissions:</strong> Official portal for National Institute of Design.</a>
+                           <a href="https://www.nift.ac.in/admissions" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>NIFT Admissions:</strong> For National Institutes of Fashion Technology.</a>
+                           <a href="https://www.uceed.iitb.ac.in/2025/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>UCEED Website:</strong> For undergraduate design at IITs.</a>
+                           <a href="https://www.behance.net/" target="_blank" class="block p-3 bg-gray-100 dark:bg-slate-700 rounded-md hover:bg-gray-200 dark:hover:bg-slate-600 transition"><strong>Behance:</strong> For inspiration and building a portfolio.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Career Suggester Modal -->
+    <div id="career-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-lg">
+            <h3 class="text-2xl font-bold mb-4 text-indigo-600 dark:text-indigo-400" id="career-modal-title">AI Career Suggestions</h3>
+            <div id="career-modal-form">
+                <label for="user-interests" class="block mb-2 font-medium text-gray-700 dark:text-gray-300">What subjects or activities do you enjoy most?</label>
+                <input type="text" id="user-interests" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-slate-700" placeholder="e.g., solving puzzles, creative writing, biology">
+                <div class="flex justify-end gap-4 mt-6">
+                    <button id="close-career-modal" class="py-2 px-4 bg-gray-200 dark:bg-slate-600 font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-500 transition">Cancel</button>
+                    <button id="submit-career-query" class="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Generate</button>
+                </div>
+            </div>
+            <div id="career-modal-loading" class="hidden flex flex-col items-center justify-center min-h-[150px]">
+                <div class="spinner"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Finding careers for you...</p>
+            </div>
+            <div id="career-modal-results" class="hidden"></div>
+             <div class="flex justify-end mt-4">
+                 <button id="close-career-results" class="hidden py-2 px-4 bg-gray-200 dark:bg-slate-600 font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-500 transition">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Study Plan Modal -->
+    <div id="plan-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-lg">
+            <h3 class="text-2xl font-bold mb-4 text-green-600 dark:text-green-400" id="plan-modal-title">AI Study Plan Generator</h3>
+            <div id="plan-modal-form">
+                 <div class="space-y-4">
+                    <div>
+                        <label for="prep-time" class="block mb-2 font-medium text-gray-700 dark:text-gray-300">How many months do you have to prepare?</label>
+                        <select id="prep-time" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-slate-700">
+                            <option value="1">1 Month</option>
+                            <option value="3">3 Months</option>
+                            <option value="6" selected>6 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="challenging-subject" class="block mb-2 font-medium text-gray-700 dark:text-gray-300">Which subject do you find most challenging?</label>
+                        <input type="text" id="challenging-subject" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-slate-700" placeholder="e.g., Organic Chemistry, Calculus">
+                    </div>
+                </div>
+                <div class="flex justify-end gap-4 mt-6">
+                    <button id="close-plan-modal" class="py-2 px-4 bg-gray-200 dark:bg-slate-600 font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-500 transition">Cancel</button>
+                    <button id="submit-plan-query" class="py-2 px-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">Generate Plan</button>
+                </div>
+            </div>
+            <div id="plan-modal-loading" class="hidden flex flex-col items-center justify-center min-h-[200px]">
+                <div class="spinner" style="border-left-color: #16a34a;"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Building your personalized plan...</p>
+            </div>
+            <div id="plan-modal-results" class="hidden max-h-[50vh] overflow-y-auto"></div>
+             <div class="flex justify-end mt-4">
+                 <button id="close-plan-results" class="hidden py-2 px-4 bg-gray-200 dark:bg-slate-600 font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-slate-500 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2024 One-Stop Personalized Career & Education Advisor. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Page Navigation Logic ---
+            const pages = document.querySelectorAll('.page');
+            const allNavLinks = [
+                ...document.querySelectorAll('.path-button'), 
+                ...document.querySelectorAll('.change-path-btn'), 
+                ...document.querySelectorAll('header a'), 
+                ...document.querySelectorAll('#mobile-menu a')
+            ];
+
+            const showPage = (pageId) => {
+                pages.forEach(page => {
+                    if (page.id === pageId) {
+                        page.classList.remove('hidden'); // Use simple hide/show
+                        page.classList.add('page-visible');
+                    } else {
+                        page.classList.add('hidden');
+                        page.classList.remove('page-visible');
+                    }
+                });
+                window.scrollTo(0, 0);
+            };
+            
+            // Initially hide all but the first page
+            pages.forEach(page => {
+                if(!page.classList.contains('page-visible')){
+                    page.classList.add('hidden');
+                }
+            })
+
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let targetId = link.getAttribute('data-target');
+                    if (!targetId) {
+                        const href = link.getAttribute('href');
+                        if (href) targetId = href.substring(1);
+                    }
+
+                    if (targetId) {
+                        if(targetId === 'after-10th' || targetId === 'after-12th'){
+                            targetId = targetId + '-section'; // Match section IDs
+                        }
+                        showPage(targetId);
+                    }
+
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+
+            // --- Generic Tab Switcher Function ---
+            function setupTabs(tabContainerId, tabPaneClass, activeClass) {
+                const tabButtons = document.querySelectorAll(`#${tabContainerId} button`);
+                const tabPanes = document.querySelectorAll(`.${tabPaneClass}`);
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tabId = button.getAttribute('data-tab');
+                        
+                        tabButtons.forEach(btn => btn.classList.remove(activeClass));
+                        button.classList.add(activeClass);
+
+                        tabPanes.forEach(pane => {
+                            pane.style.display = pane.id === tabId ? 'block' : 'none';
+                        });
+                    });
+                });
+                 // Initialize: show the first tab
+                 if(tabButtons.length > 0) {
+                    tabPanes.forEach(pane => { pane.style.display = 'none'; });
+                    document.getElementById(tabButtons[0].getAttribute('data-tab')).style.display = 'block';
+                 }
+            }
+            
+            setupTabs('tabs-10th', 'tab-pane-10th', 'tab-active');
+            setupTabs('tabs-12th', 'tab-pane-12th', 'tab-active-12th');
+            
+            document.querySelectorAll('.tab-pane-10th:not(:first-child)').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.tab-pane-12th:not(:first-child)').forEach(p => p.style.display = 'none');
+
+
+            // --- Gemini API Integration ---
+            const apiKey = ""; // IMPORTANT: ADD YOUR API KEY HERE TO RUN LOCALLY
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            // --- Career Suggester Modal Logic ---
+            const careerModal = document.getElementById('career-modal');
+            const careerSuggesterBtns = document.querySelectorAll('.career-suggester-btn');
+            const closeCareerModalBtn = document.getElementById('close-career-modal');
+            const submitCareerQueryBtn = document.getElementById('submit-career-query');
+            const closeCareerResultsBtn = document.getElementById('close-career-results');
+
+            let currentStream = '';
+            
+            careerSuggesterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentStream = btn.dataset.stream;
+                    document.getElementById('career-modal-title').innerText = `AI Suggestions for ${currentStream}`;
+                    resetCareerModal();
+                    careerModal.classList.remove('hidden');
+                });
+            });
+            
+            function closeCareerModal() {
+                 careerModal.classList.add('hidden');
+            }
+
+            closeCareerModalBtn.addEventListener('click', closeCareerModal);
+            closeCareerResultsBtn.addEventListener('click', closeCareerModal);
+
+            submitCareerQueryBtn.addEventListener('click', async () => {
+                const interests = document.getElementById('user-interests').value;
+                if (!interests.trim()) {
+                    alert('Please enter your interests.');
+                    return;
+                }
+                if (!apiKey) {
+                    displayCareerError("API key is missing. Please add it to the script tag.");
+                    return;
+                }
+
+                document.getElementById('career-modal-form').classList.add('hidden');
+                document.getElementById('career-modal-loading').classList.remove('hidden');
+
+                const userQuery = `Based on the ${currentStream} stream and an interest in ${interests}, suggest 3 niche or interesting career paths. For each career, provide a brief, one-sentence description of what it involves.`;
+                
+                const systemPrompt = "You are a helpful career advisor for students. Return the response as a valid JSON array of objects, where each object has 'career' and 'description' keys.";
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                          type: "ARRAY",
+                          items: {
+                            type: "OBJECT",
+                            properties: {
+                              "career": { "type": "STRING" },
+                              "description": { "type": "STRING" },
+                            },
+                          }
+                        }
+                    }
+                };
+                
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    const suggestions = JSON.parse(text);
+                    displayCareerSuggestions(suggestions);
+
+                } catch(error) {
+                    console.error("Error fetching career suggestions:", error);
+                    displayCareerError("Sorry, something went wrong. Please check the console and try again later.");
+                }
+            });
+            
+            function displayCareerSuggestions(suggestions) {
+                const resultsContainer = document.getElementById('career-modal-results');
+                let html = '<div class="space-y-4">';
+                suggestions.forEach(s => {
+                    html += `
+                        <div class="p-4 bg-gray-100 dark:bg-slate-700 rounded-lg border-l-4 border-indigo-500">
+                            <h4 class="font-bold text-lg text-indigo-700 dark:text-indigo-400">${s.career}</h4>
+                            <p class="text-gray-700 dark:text-gray-300 mt-1">${s.description}</p>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                resultsContainer.innerHTML = html;
+                document.getElementById('career-modal-loading').classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                closeCareerResultsBtn.classList.remove('hidden');
+            }
+            
+            function displayCareerError(message) {
+                const resultsContainer = document.getElementById('career-modal-results');
+                resultsContainer.innerHTML = `<p class="text-red-500 text-center">${message}</p>`;
+                document.getElementById('career-modal-loading').classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                closeCareerResultsBtn.classList.remove('hidden');
+            }
+
+            function resetCareerModal() {
+                 document.getElementById('user-interests').value = '';
+                 document.getElementById('career-modal-form').classList.remove('hidden');
+                 document.getElementById('career-modal-loading').classList.add('hidden');
+                 document.getElementById('career-modal-results').classList.add('hidden');
+                 document.getElementById('career-modal-results').innerHTML = '';
+                 closeCareerResultsBtn.classList.add('hidden');
+            }
+
+
+            // --- Study Plan Modal Logic ---
+            const planModal = document.getElementById('plan-modal');
+            const studyPlanBtns = document.querySelectorAll('.study-plan-btn');
+            const closePlanModalBtn = document.getElementById('close-plan-modal');
+            const submitPlanQueryBtn = document.getElementById('submit-plan-query');
+            const closePlanResultsBtn = document.getElementById('close-plan-results');
+
+            let currentExam = '';
+
+            studyPlanBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentExam = btn.dataset.exam;
+                    document.getElementById('plan-modal-title').innerText = `AI Plan for ${currentExam}`;
+                    resetPlanModal();
+                    planModal.classList.remove('hidden');
+                });
+            });
+
+            function closePlanModal() {
+                planModal.classList.add('hidden');
+            }
+
+            closePlanModalBtn.addEventListener('click', closePlanModal);
+            closePlanResultsBtn.addEventListener('click', closePlanModal);
+
+            submitPlanQueryBtn.addEventListener('click', async () => {
+                const prepTime = document.getElementById('prep-time').value;
+                const challengingSubject = document.getElementById('challenging-subject').value;
+
+                if (!challengingSubject.trim()) {
+                    alert('Please enter your most challenging subject.');
+                    return;
+                }
+                 if (!apiKey) {
+                    displayPlanError("API key is missing. Please add it to the script tag.");
+                    return;
+                }
+                
+                document.getElementById('plan-modal-form').classList.add('hidden');
+                document.getElementById('plan-modal-loading').classList.remove('hidden');
+                
+                const userQuery = `Create a high-level, 4-week sample study plan for a student preparing for the ${currentExam} exam with ${prepTime} months left. They find ${challengingSubject} difficult. The plan should outline key topics to cover each week and suggest one study tip for tackling the challenging subject. Format the response as a simple, easy-to-read text with clear weekly headings. Use markdown for formatting like bold headings.`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    const planText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    displayStudyPlan(planText);
+
+                } catch(error) {
+                    console.error("Error fetching study plan:", error);
+                    displayPlanError("Sorry, we couldn't generate a plan. Please check the console and try again later.");
+                }
+            });
+
+            function displayStudyPlan(planText) {
+                const resultsContainer = document.getElementById('plan-modal-results');
+                // Simple formatting for readability
+                const formattedText = planText
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-green-600 dark:text-green-400">$1</strong>') // Bold for headings
+                    .replace(/\*/g, '<br>• ') // Bullets
+                    .replace(/\n/g, '<br>');
+                resultsContainer.innerHTML = `<div class="prose prose-sm dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">${formattedText}</div>`;
+                document.getElementById('plan-modal-loading').classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                closePlanResultsBtn.classList.remove('hidden');
+            }
+
+            function displayPlanError(message) {
+                 const resultsContainer = document.getElementById('plan-modal-results');
+                resultsContainer.innerHTML = `<p class="text-red-500 text-center">${message}</p>`;
+                document.getElementById('plan-modal-loading').classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                closePlanResultsBtn.classList.remove('hidden');
+            }
+
+            function resetPlanModal() {
+                 document.getElementById('challenging-subject').value = '';
+                 document.getElementById('prep-time').value = '6';
+                 document.getElementById('plan-modal-form').classList.remove('hidden');
+                 document.getElementById('plan-modal-loading').classList.add('hidden');
+                 document.getElementById('plan-modal-results').classList.add('hidden');
+                 document.getElementById('plan-modal-results').innerHTML = '';
+                 closePlanResultsBtn.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
